@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #0f172a;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --primary: #8b5cf6;
+  --primary-hover: #7c3aed;
+  --secondary: #3b82f6;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --gradient-bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--gradient-bg);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  background-attachment: fixed;
+}
+
+/* Base animated background circles */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(100px);
+  opacity: 0.5;
+  animation: float 20s infinite ease-in-out;
+}
+
+body::before {
+  top: -10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: rgba(139, 92, 246, 0.3);
+  animation-delay: 0s;
+}
+
+body::after {
+  bottom: -10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: rgba(59, 130, 246, 0.2);
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
